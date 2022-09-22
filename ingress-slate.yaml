@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-slate
+  namespace: platform
+  annotations:
+    ingress.kubernetes.io/add-base-url: "true"
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/cors-allow-methods: GET
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/limit-rpm: "20"
+    nginx.ingress.kubernetes.io/limit-rps: "5"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+#  tls:
+#  - hosts:
+#    - slate-platform.symplr.com
+#    secretName: your-tls-cert
+  rules:
+  - host: slate-platform.symplr.com
+    http:
+      paths:
+      - path: /(.*)
+        backend:
+          serviceName: slate-svc
+          servicePort: 80
