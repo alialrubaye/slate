@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-slate-deployment
+  labels:
+    app: slate
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: slate
+  template:
+    metadata:
+      labels:
+        app: slate
+    spec:
+      containers:
+      - name: slate
+        image: '545980216461.dkr.ecr.us-east-2.amazonaws.com/slatedocs/websrv:latest'
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: 200m
+            memory: 200Mi
