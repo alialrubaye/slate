@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: slate-svc
+  namespace: platform
+spec:
+  selector:
+    app: slate
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
