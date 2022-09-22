@@ -18,7 +18,7 @@ spec:
 #    - slate-platform.symplr.com
 #    secretName: your-tls-cert
   rules:
-  - host: slate-platform.symplr.com
+  - host: slate.alrubayecluster.com
     http:
       paths:
       - path: /(.*)
