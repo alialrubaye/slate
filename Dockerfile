@@ -1,5 +1,5 @@
 # First stage
-FROM 545980216461.dkr.ecr.us-east-2.amazonaws.com/slatedocs/slate:latest as builder
+FROM xxxxxxxxxxx.dkr.ecr.us-east-2.amazonaws.com/slatedocs/slate:latest as builder
 
 CMD cd /srv/slate
 
